@@ -5,30 +5,35 @@ import android.support.v7.app.ActionBarActivity;
 
 
 public class CrimeFragment extends Fragment {
+    
+    private Crime mCrime;
+    private EditText mTitleField;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_crime);
+        mCrime = new Crime();
     }
-
-
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.crime, menu);
-        return true;
-    }
-
+    
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
+    public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.fragment_crime, parent, false);
+        
+        mTitleField = (EditText)v.findViewById(R.id.crime_title);
+        mTitleField.addTextChangedListener(new TextWatcher() {
+            public void onTextChanged(
+                CharSequence c, int start, int before, int count){
+                    mCrime.setTitle(c.toString());
         }
-        return super.onOptionsItemSelected(item);
-    }*/
+        public void beforeTextChanged(
+            CharSequence c, int start, int count, int after) {
+                //BLANK FOR A REASON
+            }
+        public void afterTextChanged(Editable c) {
+            //THIS TOO
+        }
+        });
+        return v;
+    }
+
 }
