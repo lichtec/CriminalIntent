@@ -1,5 +1,7 @@
 package android.bignerdranch.com.criminalintent;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 
