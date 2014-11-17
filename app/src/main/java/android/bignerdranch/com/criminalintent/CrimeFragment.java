@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 
 
@@ -49,9 +50,9 @@ public class CrimeFragment extends Fragment {
         mDateButton.setEnabled(false);
         
         mSolvedCheckBox = (CheckBox)v.findViewById(R.id.crime_solved);
-        mSolvedCheckBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-            public void onCheckedChanged(compoundButton buttonView, boolean isChecked) {
-                //Set the crime's solved property
+        mSolvedCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 mCrime.setSolved(isChecked);
             }
         });
