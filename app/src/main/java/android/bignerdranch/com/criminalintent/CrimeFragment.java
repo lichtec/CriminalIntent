@@ -8,6 +8,8 @@ public class CrimeFragment extends Fragment {
     
     private Crime mCrime;
     private EditText mTitleField;
+    private Button mDateButton;
+    private CheckBox mSolvedCheckBox;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,11 @@ public class CrimeFragment extends Fragment {
             //THIS TOO
         }
         });
+        
+        mDateButton = (Button)v.findViewById(R.id.crime_date);
+        mDateButton.setText(mCrime.getDate().toString());
+        mDateButton.setEnabled(false);
+        
         return v;
     }
 
