@@ -43,6 +43,19 @@ public class CrimeFragment extends Fragment {
             //THIS TOO
         }
         });
+        
+        mDateButton = (Button)v.findViewById(R.id.crime_date);
+        mDateButton.setText(mCrime.getDate().toString());
+        mDateButton.setEnabled(false);
+        
+        mSolvedCheckBox = (CheckBox)v.findViewById(R.id.crime_solved);
+        mSolvedCheckBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+            public void onCheckedChanged(compoundButton buttonView, boolean isChecked) {
+                //Set the crime's solved property
+                mCrime.setSolved(isChecked);
+            }
+        });
+        
         return v;
     }
 
