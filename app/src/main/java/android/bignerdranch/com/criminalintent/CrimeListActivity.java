@@ -9,4 +9,10 @@ public class CrimeListActivity extends SingleFragmentActivity {
     protected android.app.Fragment createFragment() {
         return new CrimeListFragment();
     }
+    
+    @Override
+    public void onResume(){
+        super.onResume();
+        ((CrimeAdapter)getListAdapter()).notifyDataSetChanged();
+    }
 }
