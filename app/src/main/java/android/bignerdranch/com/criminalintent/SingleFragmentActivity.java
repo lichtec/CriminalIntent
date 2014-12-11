@@ -1,13 +1,11 @@
 package android.bignerdranch.com.criminalintent;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 
-/**
- * Created by christopherl on 11/27/14.
- */
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+
 public abstract class SingleFragmentActivity extends FragmentActivity {
     protected abstract Fragment createFragment();
 
@@ -15,12 +13,14 @@ public abstract class SingleFragmentActivity extends FragmentActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment);
-        FragmentManager fm = getFragmentManager();
-        Fragment fragment = fm.findFragmentById(R.id.fragmentContainer);
-        if(fragment == null){
+        FragmentManager manager = getSupportFragmentManager();
+        Fragment fragment = manager.findFragmentById(R.id.fragmentContainer);
+
+        if (fragment == null) {
             fragment = createFragment();
-            fm.beginTransaction().add(R.id.fragmentContainer, fragment).commit();
+            manager.beginTransaction()
+                    .add(R.id.fragmentContainer, fragment)
+                    .commit();
         }
     }
-
 }

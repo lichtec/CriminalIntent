@@ -1,18 +1,11 @@
 package android.bignerdranch.com.criminalintent;
 
-/**
- * Created by christopherl on 11/30/14.
- */
+import android.support.v4.app.Fragment;
+
 public class CrimeListActivity extends SingleFragmentActivity {
 
     @Override
-    protected android.app.Fragment createFragment() {
+    protected Fragment createFragment() {
         return new CrimeListFragment();
-    }
-    
-    @Override
-    public void onResume(){
-        super.onResume();
-        ((CrimeAdapter)getListAdapter()).notifyDataSetChanged();
     }
 }
