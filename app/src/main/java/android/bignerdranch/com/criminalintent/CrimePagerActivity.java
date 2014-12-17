@@ -44,7 +44,6 @@ public class CrimePagerActivity extends FragmentActivity {
         for (int i = 0; i < mCrimes.size(); i++) {
             mViewPager.setCurrentItem(i);
             break;
-            }
         }
     }
 }
